@@ -42,5 +42,15 @@ describe('walk', () => {
   });
 });
 
+describe('feed', () => {
+  it ('deceases hunger to a minimum of 0', () => {
+    const pet = new Pet ('Fido');
+    pet.hunger = 3;
+    pet.feed();
+    expect(pet.hunger).toEqual(0)
+  })
+})
+
+
 
 
