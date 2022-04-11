@@ -1,9 +1,13 @@
 const Pet = require('./src/pet.js')
+//require the pet function into this test file to link 
+//also at the beginning on node.js 
 
+//testing that the pet function returns an object
 describe('constructor', () => {
     it('returns an object', () => {
       expect(new Pet('Fido')).toBeInstanceOf(Object);
     });
+
     it('sets the name property', () => {
       const pet = new Pet('Fido');
       expect(pet.name).toEqual('Fido');
@@ -12,13 +16,13 @@ describe('constructor', () => {
        const pet = new Pet ('Fido');
        expect(pet.age).toEqual(0); 
     });
+
     it('has an initial hunger of 0', () => {
       expect(pet.hunger).toEqual(0);
-    });
-    it('has an initial fitness of 0', () => {
       expect(pet.fitness).toEqual(10);
     });
   });
+
 
 describe('growUp', () => {
     it('increments the age by 1', () => {
@@ -54,6 +58,7 @@ describe('feed', () => {
 describe('checkUp',() => {
   it('checks if fitness is 3 or less', () => {
     const pet = new Pet ('Fido');
+   
     pet.fitness <= 3;
     expect(pet.checkUp()).toEqual('I need a walk');
     });
@@ -68,12 +73,24 @@ describe('checkUp',() => {
     const pet = new Pet ('Fido');
     pet.fitness <= 3 && pet.hunger >=5;
     expect(pet.checkUp()).toEqual('I am hungry AND I need a walk');
-  });
+    });
 
-  it('checks if fitness is 4 or more and hunger is 4 or less' () => {
+  it('checks if fitness is 4 or more and hunger is 4 or less', () => {
     const pet = new Pet ('Fido');
     pet.fitness <= 3 !== pet.hunger >=5;
     expect(pet.checkUp()).toEqual('I feel great!');
+    });
   });
 
-  })
+describe('isAlive', () => {
+  it('checks if pet is alive', () => {
+    const pet = new pet('Fido');
+    pet.age < 30 !== pet.hunger < 10 !== pet.fitness > 0;
+    expect(pet.isAlive()).toEqual(false);
+ });
+  it('checks if pet is alive', () => {
+    const pet = new pet('Fido');
+    pet.age < 30 && pet.hunger < 10 && pet.fitness > 0;
+    expect(pet.isAlive()).toEqual(true);
+});
+});
